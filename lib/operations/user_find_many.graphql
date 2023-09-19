@@ -1,0 +1,25 @@
+query UserFindMany($where: UserWhereInput, $take: Int, $skip: Int, $orderBy: [UserOrderByWithRelationInput!]) {
+  userFindMany(where: $where, take: $take, skip: $skip, orderBy: $orderBy) {
+    id
+    fullName
+    email
+    password
+    whatsapp
+    createdAt
+    updatedAt
+    deletedAt
+    role
+    guestInfo {
+      userId
+      category1
+      category2
+      personInCharge
+      class
+      seat
+      rejectionReason
+      description
+      parties
+      confirmationStatus
+    }
+  }
+}
