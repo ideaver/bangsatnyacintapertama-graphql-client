@@ -1,0 +1,5 @@
+mutation UserSoftDeletes($data: UserUpdateManyMutationInput!, $where: UserWhereInput) {
+  userUpdateMany(data: $data, where: $where) {
+    count
+  }
+}

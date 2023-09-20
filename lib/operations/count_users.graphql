@@ -1,0 +1,3 @@
+query CountUsers($where: UserWhereInput) {
+  userCount(where: $where)
+}
