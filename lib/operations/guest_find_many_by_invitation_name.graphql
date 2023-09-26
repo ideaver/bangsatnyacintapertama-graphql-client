@@ -1,0 +1,27 @@
+query GuestFindManyOrderByInvitationName($orderBy: [GuestOrderByWithRelationInput!]) {
+  guestFindMany(orderBy: $orderBy) {
+    id
+    source
+    invitationName
+    contactList
+    whatsapp
+    category
+    class
+    seat
+    studio
+    showTime
+    confirmationStatus
+    whatsappStatuses {
+      id
+      status
+      guestId
+      createdAt
+    }
+    groupMemberOf {
+      id
+      source
+      invitationName
+      contactList
+    }
+  }
+}

@@ -2,7 +2,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'graphql_service.dart';
 import 'operations/generated/auth_login.graphql.dart';
-import 'operations/generated/auth_password.graphql.dart';
+// import 'operations/generated/auth_password.graphql.dart';
 
 class GqlAuthService {
   static Future<QueryResult<Mutation$AuthLogin>> authLogin({
@@ -23,15 +23,15 @@ class GqlAuthService {
     );
   }
 
-  static Future<QueryResult<Mutation$AuthPasswordReset>> authPasswordReset({
-    required String email,
-  }) async {
-    return await GraphQLService.client.mutate(
-      MutationOptions(
-        document: documentNodeMutationAuthPasswordReset,
-        parserFn: (data) => Mutation$AuthPasswordReset.fromJson(data),
-        variables: {"email": email},
-      ),
-    );
-  }
+  // static Future<QueryResult<Mutation$AuthPasswordReset>> authPasswordReset({
+  //   required String email,
+  // }) async {
+  //   return await GraphQLService.client.mutate(
+  //     MutationOptions(
+  //       document: documentNodeMutationAuthPasswordReset,
+  //       parserFn: (data) => Mutation$AuthPasswordReset.fromJson(data),
+  //       variables: {"email": email},
+  //     ),
+  //   );
+  // }
 }

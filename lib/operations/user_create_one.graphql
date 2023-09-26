@@ -1,14 +1,14 @@
-mutation UserCreateOne($data: UserCreateInput!) {
-  userCreateOne(data: $data) {
-    id
-    fullName
-    email
-    password
-    whatsapp
-    createdAt
-    updatedAt
-    deletedAt
-    role
-    guestInfoId
-  }
-}
+# mutation UserCreateOne($data: UserCreateInput!) {
+#   userCreateOne(data: $data) {
+#     id
+#     fullName
+#     email
+#     password
+#     whatsapp
+#     createdAt
+#     updatedAt
+#     deletedAt
+#     role
+#     guestInfoId
+#   }
+# }

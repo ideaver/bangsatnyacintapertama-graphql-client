@@ -6,12 +6,12 @@ mutation AuthLogin($loginArgs: LoginArgs!) {
       fullName
       email
       password
-      whatsapp
+      # whatsapp
       createdAt
       updatedAt
       deletedAt
       role
-      guestInfoId
+      # guestInfoId
     }
   }
 }

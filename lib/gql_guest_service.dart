@@ -1,57 +1,37 @@
-class GqlUserService {
-  // static Future<QueryResult<Query$UserFindMany>> userFindMany({
-  //   int skip = 0,
-  //   String contains = '',
-  //   Enum$UserRole userRole = Enum$UserRole.GUEST,
-  //   Enum$ConfirmationStatus confirmationStatus = Enum$ConfirmationStatus.CONFIRMED,
-  //   List<Enum$QueueStatus>? emailQueueStatus,
-  //   List<Enum$QueueStatus>? whatsAppQueueStatus,
-  // }) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeQueryUserFindMany,
-  //       parserFn: (data) => Query$UserFindMany.fromJson(data),
-  //       variables: {
-  //         "where": {
-  //           "fullName": {"contains": contains},
-  //           "role": {"equals": userRole.name},
-  //           "deletedAt": {"equals": null},
-  //           "guestInfo": emailQueueStatus != null && whatsAppQueueStatus != null
-  //               ? {
-  //                   "is": {
-  //                     "confirmationStatus": {"equals": confirmationStatus.name}
-  //                   }
-  //                 }
-  //               : {
-  //                   "isNot": {
-  //                     "AND": [
-  //                       {
-  //                         "emailQueue": {
-  //                           "some": {
-  //                             "status": {"in": emailQueueStatus ?? []}
-  //                           }
-  //                         }
-  //                       },
-  //                       {
-  //                         "whatsappQueue": {
-  //                           "some": {
-  //                             "status": {"in": whatsAppQueueStatus ?? []}
-  //                           }
-  //                         }
-  //                       }
-  //                     ]
-  //                   }
-  //                 }
-  //         },
-  //         "take": 10,
-  //         "skip": skip,
-  //         "orderBy": [
-  //           {"createdAt": "desc"}
-  //         ]
-  //       },
-  //     ),
-  //   );
-  // }
+import 'package:graphql_flutter/graphql_flutter.dart';
+
+import 'graphql_service.dart';
+import 'operations/generated/guest_find_many_by_invitation_name.graphql.dart';
+
+class GqlGuestService {
+  static Future<QueryResult<Query$GuestFindManyOrderByInvitationName>> guestFindManyOrderByInvitationName({
+    int skip = 0,
+    // String contains = '',
+    // Enum$UserRole userRole = Enum$UserRole.GUEST,
+    // Enum$ConfirmationStatus confirmationStatus = Enum$ConfirmationStatus.CONFIRMED,
+    // List<Enum$QueueStatus>? emailQueueStatus,
+    // List<Enum$QueueStatus>? whatsAppQueueStatus,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryGuestFindManyOrderByInvitationName,
+        parserFn: (data) => Query$GuestFindManyOrderByInvitationName.fromJson(data),
+        variables: {
+          "orderBy": [
+            {"invitationName": "asc"},
+            {
+              "source": {"sort": "asc"}
+            },
+            {
+              "contactList": {"sort": "asc"}
+            }
+          ],
+          "take": 50,
+          "skip": skip,
+        },
+      ),
+    );
+  }
 
   // static Future<QueryResult<Mutation$UserCreateOne>> userCreateOne({
   //   required Mutation$UserCreateOne$userCreateOne user,

@@ -308,13 +308,6 @@ const documentNodeMutationAuthLogin = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'whatsapp'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
                 name: NameNode(value: 'createdAt'),
                 alias: null,
                 arguments: [],
@@ -337,13 +330,6 @@ const documentNodeMutationAuthLogin = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'role'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'guestInfoId'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -743,13 +729,11 @@ class Mutation$AuthLogin$authLogin$user {
     required this.id,
     required this.fullName,
     this.email,
-    required this.password,
-    this.whatsapp,
+    this.password,
     required this.createdAt,
-    required this.updatedAt,
+    this.updatedAt,
     this.deletedAt,
     required this.role,
-    this.guestInfoId,
     this.$__typename = 'User',
   });
 
@@ -759,24 +743,20 @@ class Mutation$AuthLogin$authLogin$user {
     final l$fullName = json['fullName'];
     final l$email = json['email'];
     final l$password = json['password'];
-    final l$whatsapp = json['whatsapp'];
     final l$createdAt = json['createdAt'];
     final l$updatedAt = json['updatedAt'];
     final l$deletedAt = json['deletedAt'];
     final l$role = json['role'];
-    final l$guestInfoId = json['guestInfoId'];
     final l$$__typename = json['__typename'];
     return Mutation$AuthLogin$authLogin$user(
       id: (l$id as String),
       fullName: (l$fullName as String),
       email: (l$email as String?),
-      password: (l$password as String),
-      whatsapp: (l$whatsapp as String?),
+      password: (l$password as String?),
       createdAt: (l$createdAt as String),
-      updatedAt: (l$updatedAt as String),
+      updatedAt: (l$updatedAt as String?),
       deletedAt: (l$deletedAt as String?),
       role: fromJson$Enum$UserRole((l$role as String)),
-      guestInfoId: (l$guestInfoId as String?),
       $__typename: (l$$__typename as String),
     );
   }
@@ -787,19 +767,15 @@ class Mutation$AuthLogin$authLogin$user {
 
   final String? email;
 
-  final String password;
-
-  final String? whatsapp;
+  final String? password;
 
   final String createdAt;
 
-  final String updatedAt;
+  final String? updatedAt;
 
   final String? deletedAt;
 
   final Enum$UserRole role;
-
-  final String? guestInfoId;
 
   final String $__typename;
 
@@ -813,8 +789,6 @@ class Mutation$AuthLogin$authLogin$user {
     _resultData['email'] = l$email;
     final l$password = password;
     _resultData['password'] = l$password;
-    final l$whatsapp = whatsapp;
-    _resultData['whatsapp'] = l$whatsapp;
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt;
     final l$updatedAt = updatedAt;
@@ -823,8 +797,6 @@ class Mutation$AuthLogin$authLogin$user {
     _resultData['deletedAt'] = l$deletedAt;
     final l$role = role;
     _resultData['role'] = toJson$Enum$UserRole(l$role);
-    final l$guestInfoId = guestInfoId;
-    _resultData['guestInfoId'] = l$guestInfoId;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -836,24 +808,20 @@ class Mutation$AuthLogin$authLogin$user {
     final l$fullName = fullName;
     final l$email = email;
     final l$password = password;
-    final l$whatsapp = whatsapp;
     final l$createdAt = createdAt;
     final l$updatedAt = updatedAt;
     final l$deletedAt = deletedAt;
     final l$role = role;
-    final l$guestInfoId = guestInfoId;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$fullName,
       l$email,
       l$password,
-      l$whatsapp,
       l$createdAt,
       l$updatedAt,
       l$deletedAt,
       l$role,
-      l$guestInfoId,
       l$$__typename,
     ]);
   }
@@ -887,11 +855,6 @@ class Mutation$AuthLogin$authLogin$user {
     if (l$password != lOther$password) {
       return false;
     }
-    final l$whatsapp = whatsapp;
-    final lOther$whatsapp = other.whatsapp;
-    if (l$whatsapp != lOther$whatsapp) {
-      return false;
-    }
     final l$createdAt = createdAt;
     final lOther$createdAt = other.createdAt;
     if (l$createdAt != lOther$createdAt) {
@@ -910,11 +873,6 @@ class Mutation$AuthLogin$authLogin$user {
     final l$role = role;
     final lOther$role = other.role;
     if (l$role != lOther$role) {
-      return false;
-    }
-    final l$guestInfoId = guestInfoId;
-    final lOther$guestInfoId = other.guestInfoId;
-    if (l$guestInfoId != lOther$guestInfoId) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -949,12 +907,10 @@ abstract class CopyWith$Mutation$AuthLogin$authLogin$user<TRes> {
     String? fullName,
     String? email,
     String? password,
-    String? whatsapp,
     String? createdAt,
     String? updatedAt,
     String? deletedAt,
     Enum$UserRole? role,
-    String? guestInfoId,
     String? $__typename,
   });
 }
@@ -977,12 +933,10 @@ class _CopyWithImpl$Mutation$AuthLogin$authLogin$user<TRes>
     Object? fullName = _undefined,
     Object? email = _undefined,
     Object? password = _undefined,
-    Object? whatsapp = _undefined,
     Object? createdAt = _undefined,
     Object? updatedAt = _undefined,
     Object? deletedAt = _undefined,
     Object? role = _undefined,
-    Object? guestInfoId = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$AuthLogin$authLogin$user(
@@ -991,26 +945,20 @@ class _CopyWithImpl$Mutation$AuthLogin$authLogin$user<TRes>
             ? _instance.fullName
             : (fullName as String),
         email: email == _undefined ? _instance.email : (email as String?),
-        password: password == _undefined || password == null
-            ? _instance.password
-            : (password as String),
-        whatsapp:
-            whatsapp == _undefined ? _instance.whatsapp : (whatsapp as String?),
+        password:
+            password == _undefined ? _instance.password : (password as String?),
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as String),
-        updatedAt: updatedAt == _undefined || updatedAt == null
+        updatedAt: updatedAt == _undefined
             ? _instance.updatedAt
-            : (updatedAt as String),
+            : (updatedAt as String?),
         deletedAt: deletedAt == _undefined
             ? _instance.deletedAt
             : (deletedAt as String?),
         role: role == _undefined || role == null
             ? _instance.role
             : (role as Enum$UserRole),
-        guestInfoId: guestInfoId == _undefined
-            ? _instance.guestInfoId
-            : (guestInfoId as String?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -1028,12 +976,10 @@ class _CopyWithStubImpl$Mutation$AuthLogin$authLogin$user<TRes>
     String? fullName,
     String? email,
     String? password,
-    String? whatsapp,
     String? createdAt,
     String? updatedAt,
     String? deletedAt,
     Enum$UserRole? role,
-    String? guestInfoId,
     String? $__typename,
   }) =>
       _res;
