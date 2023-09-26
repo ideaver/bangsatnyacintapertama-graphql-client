@@ -16,7 +16,7 @@ class GraphQLService {
 
     // TODO SECURE ENDPOINT FROM ENV
     httpLink = HttpLink(
-      "https://bangsatnyacintapertama.com/graphql",
+      "https://bangsatnyacintapertama.com/graphql/",
       defaultHeaders: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

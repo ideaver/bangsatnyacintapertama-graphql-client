@@ -2,21 +2,37 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'graphql_service.dart';
 import 'operations/generated/guest_find_many_by_invitation_name.graphql.dart';
+import 'schema/generated/schema.graphql.dart';
 
 class GqlGuestService {
-  static Future<QueryResult<Query$GuestFindManyOrderByInvitationName>> guestFindManyOrderByInvitationName({
+  static Future<QueryResult<Query$GuestFindManyByInvitationName>> guestFindManyByInvitationName({
     int skip = 0,
-    // String contains = '',
+    String contains = '',
     // Enum$UserRole userRole = Enum$UserRole.GUEST,
-    // Enum$ConfirmationStatus confirmationStatus = Enum$ConfirmationStatus.CONFIRMED,
+    Enum$ConfirmationStatus? confirmationStatus,
     // List<Enum$QueueStatus>? emailQueueStatus,
-    // List<Enum$QueueStatus>? whatsAppQueueStatus,
+    List<Enum$QueueStatus>? whatsAppQueueStatus,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
-        document: documentNodeQueryGuestFindManyOrderByInvitationName,
-        parserFn: (data) => Query$GuestFindManyOrderByInvitationName.fromJson(data),
+        document: documentNodeQueryGuestFindManyByInvitationName,
+        parserFn: (data) => Query$GuestFindManyByInvitationName.fromJson(data),
         variables: {
+          "where": {
+            "invitationName": {"contains": contains},
+            "confirmationStatus": confirmationStatus == null
+                ? {}
+                : {
+                    "in": [confirmationStatus.name]
+                  },
+            "whatsappStatuses": {
+              "every": {
+                "status": whatsAppQueueStatus == null || whatsAppQueueStatus.isEmpty
+                    ? {}
+                    : {"in": whatsAppQueueStatus.map((e) => e.name).toList()}
+              }
+            }
+          },
           "orderBy": [
             {"invitationName": "asc"},
             {
@@ -26,7 +42,7 @@ class GqlGuestService {
               "contactList": {"sort": "asc"}
             }
           ],
-          "take": 50,
+          "take": 25,
           "skip": skip,
         },
       ),

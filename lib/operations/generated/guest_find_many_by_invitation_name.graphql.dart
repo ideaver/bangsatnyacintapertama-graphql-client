@@ -5,18 +5,31 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-class Variables$Query$GuestFindManyOrderByInvitationName {
-  factory Variables$Query$GuestFindManyOrderByInvitationName(
-          {List<Input$GuestOrderByWithRelationInput>? orderBy}) =>
-      Variables$Query$GuestFindManyOrderByInvitationName._({
+class Variables$Query$GuestFindManyByInvitationName {
+  factory Variables$Query$GuestFindManyByInvitationName({
+    Input$GuestWhereInput? where,
+    List<Input$GuestOrderByWithRelationInput>? orderBy,
+    int? take,
+    int? skip,
+  }) =>
+      Variables$Query$GuestFindManyByInvitationName._({
+        if (where != null) r'where': where,
         if (orderBy != null) r'orderBy': orderBy,
+        if (take != null) r'take': take,
+        if (skip != null) r'skip': skip,
       });
 
-  Variables$Query$GuestFindManyOrderByInvitationName._(this._$data);
+  Variables$Query$GuestFindManyByInvitationName._(this._$data);
 
-  factory Variables$Query$GuestFindManyOrderByInvitationName.fromJson(
+  factory Variables$Query$GuestFindManyByInvitationName.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$GuestWhereInput.fromJson((l$where as Map<String, dynamic>));
+    }
     if (data.containsKey('orderBy')) {
       final l$orderBy = data['orderBy'];
       result$data['orderBy'] = (l$orderBy as List<dynamic>?)
@@ -24,26 +37,49 @@ class Variables$Query$GuestFindManyOrderByInvitationName {
               (e as Map<String, dynamic>)))
           .toList();
     }
-    return Variables$Query$GuestFindManyOrderByInvitationName._(result$data);
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    return Variables$Query$GuestFindManyByInvitationName._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
+  Input$GuestWhereInput? get where =>
+      (_$data['where'] as Input$GuestWhereInput?);
   List<Input$GuestOrderByWithRelationInput>? get orderBy =>
       (_$data['orderBy'] as List<Input$GuestOrderByWithRelationInput>?);
+  int? get take => (_$data['take'] as int?);
+  int? get skip => (_$data['skip'] as int?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
     if (_$data.containsKey('orderBy')) {
       final l$orderBy = orderBy;
       result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
     }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
     return result$data;
   }
 
-  CopyWith$Variables$Query$GuestFindManyOrderByInvitationName<
-          Variables$Query$GuestFindManyOrderByInvitationName>
-      get copyWith =>
-          CopyWith$Variables$Query$GuestFindManyOrderByInvitationName(
+  CopyWith$Variables$Query$GuestFindManyByInvitationName<
+          Variables$Query$GuestFindManyByInvitationName>
+      get copyWith => CopyWith$Variables$Query$GuestFindManyByInvitationName(
             this,
             (i) => i,
           );
@@ -52,8 +88,16 @@ class Variables$Query$GuestFindManyOrderByInvitationName {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GuestFindManyOrderByInvitationName) ||
+    if (!(other is Variables$Query$GuestFindManyByInvitationName) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
       return false;
     }
     final l$orderBy = orderBy;
@@ -75,91 +119,127 @@ class Variables$Query$GuestFindManyOrderByInvitationName {
     } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
     return true;
   }
 
   @override
   int get hashCode {
+    final l$where = where;
     final l$orderBy = orderBy;
+    final l$take = take;
+    final l$skip = skip;
     return Object.hashAll([
+      _$data.containsKey('where') ? l$where : const {},
       _$data.containsKey('orderBy')
           ? l$orderBy == null
               ? null
               : Object.hashAll(l$orderBy.map((v) => v))
-          : const {}
+          : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('skip') ? l$skip : const {},
     ]);
   }
 }
 
-abstract class CopyWith$Variables$Query$GuestFindManyOrderByInvitationName<
-    TRes> {
-  factory CopyWith$Variables$Query$GuestFindManyOrderByInvitationName(
-    Variables$Query$GuestFindManyOrderByInvitationName instance,
-    TRes Function(Variables$Query$GuestFindManyOrderByInvitationName) then,
-  ) = _CopyWithImpl$Variables$Query$GuestFindManyOrderByInvitationName;
+abstract class CopyWith$Variables$Query$GuestFindManyByInvitationName<TRes> {
+  factory CopyWith$Variables$Query$GuestFindManyByInvitationName(
+    Variables$Query$GuestFindManyByInvitationName instance,
+    TRes Function(Variables$Query$GuestFindManyByInvitationName) then,
+  ) = _CopyWithImpl$Variables$Query$GuestFindManyByInvitationName;
 
-  factory CopyWith$Variables$Query$GuestFindManyOrderByInvitationName.stub(
+  factory CopyWith$Variables$Query$GuestFindManyByInvitationName.stub(
           TRes res) =
-      _CopyWithStubImpl$Variables$Query$GuestFindManyOrderByInvitationName;
+      _CopyWithStubImpl$Variables$Query$GuestFindManyByInvitationName;
 
-  TRes call({List<Input$GuestOrderByWithRelationInput>? orderBy});
+  TRes call({
+    Input$GuestWhereInput? where,
+    List<Input$GuestOrderByWithRelationInput>? orderBy,
+    int? take,
+    int? skip,
+  });
 }
 
-class _CopyWithImpl$Variables$Query$GuestFindManyOrderByInvitationName<TRes>
-    implements
-        CopyWith$Variables$Query$GuestFindManyOrderByInvitationName<TRes> {
-  _CopyWithImpl$Variables$Query$GuestFindManyOrderByInvitationName(
+class _CopyWithImpl$Variables$Query$GuestFindManyByInvitationName<TRes>
+    implements CopyWith$Variables$Query$GuestFindManyByInvitationName<TRes> {
+  _CopyWithImpl$Variables$Query$GuestFindManyByInvitationName(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$GuestFindManyOrderByInvitationName _instance;
+  final Variables$Query$GuestFindManyByInvitationName _instance;
 
-  final TRes Function(Variables$Query$GuestFindManyOrderByInvitationName) _then;
+  final TRes Function(Variables$Query$GuestFindManyByInvitationName) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? orderBy = _undefined}) =>
-      _then(Variables$Query$GuestFindManyOrderByInvitationName._({
+  TRes call({
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+    Object? take = _undefined,
+    Object? skip = _undefined,
+  }) =>
+      _then(Variables$Query$GuestFindManyByInvitationName._({
         ..._instance._$data,
+        if (where != _undefined) 'where': (where as Input$GuestWhereInput?),
         if (orderBy != _undefined)
           'orderBy': (orderBy as List<Input$GuestOrderByWithRelationInput>?),
+        if (take != _undefined) 'take': (take as int?),
+        if (skip != _undefined) 'skip': (skip as int?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$GuestFindManyOrderByInvitationName<TRes>
-    implements
-        CopyWith$Variables$Query$GuestFindManyOrderByInvitationName<TRes> {
-  _CopyWithStubImpl$Variables$Query$GuestFindManyOrderByInvitationName(
-      this._res);
+class _CopyWithStubImpl$Variables$Query$GuestFindManyByInvitationName<TRes>
+    implements CopyWith$Variables$Query$GuestFindManyByInvitationName<TRes> {
+  _CopyWithStubImpl$Variables$Query$GuestFindManyByInvitationName(this._res);
 
   TRes _res;
 
-  call({List<Input$GuestOrderByWithRelationInput>? orderBy}) => _res;
+  call({
+    Input$GuestWhereInput? where,
+    List<Input$GuestOrderByWithRelationInput>? orderBy,
+    int? take,
+    int? skip,
+  }) =>
+      _res;
 }
 
-class Query$GuestFindManyOrderByInvitationName {
-  Query$GuestFindManyOrderByInvitationName({
+class Query$GuestFindManyByInvitationName {
+  Query$GuestFindManyByInvitationName({
     this.guestFindMany,
     this.$__typename = 'Query',
   });
 
-  factory Query$GuestFindManyOrderByInvitationName.fromJson(
+  factory Query$GuestFindManyByInvitationName.fromJson(
       Map<String, dynamic> json) {
     final l$guestFindMany = json['guestFindMany'];
     final l$$__typename = json['__typename'];
-    return Query$GuestFindManyOrderByInvitationName(
+    return Query$GuestFindManyByInvitationName(
       guestFindMany: (l$guestFindMany as List<dynamic>?)
           ?.map((e) =>
-              Query$GuestFindManyOrderByInvitationName$guestFindMany.fromJson(
+              Query$GuestFindManyByInvitationName$guestFindMany.fromJson(
                   (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query$GuestFindManyOrderByInvitationName$guestFindMany>?
-      guestFindMany;
+  final List<Query$GuestFindManyByInvitationName$guestFindMany>? guestFindMany;
 
   final String $__typename;
 
@@ -190,7 +270,7 @@ class Query$GuestFindManyOrderByInvitationName {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GuestFindManyOrderByInvitationName) ||
+    if (!(other is Query$GuestFindManyByInvitationName) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -219,47 +299,47 @@ class Query$GuestFindManyOrderByInvitationName {
   }
 }
 
-extension UtilityExtension$Query$GuestFindManyOrderByInvitationName
-    on Query$GuestFindManyOrderByInvitationName {
-  CopyWith$Query$GuestFindManyOrderByInvitationName<
-          Query$GuestFindManyOrderByInvitationName>
-      get copyWith => CopyWith$Query$GuestFindManyOrderByInvitationName(
+extension UtilityExtension$Query$GuestFindManyByInvitationName
+    on Query$GuestFindManyByInvitationName {
+  CopyWith$Query$GuestFindManyByInvitationName<
+          Query$GuestFindManyByInvitationName>
+      get copyWith => CopyWith$Query$GuestFindManyByInvitationName(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GuestFindManyOrderByInvitationName<TRes> {
-  factory CopyWith$Query$GuestFindManyOrderByInvitationName(
-    Query$GuestFindManyOrderByInvitationName instance,
-    TRes Function(Query$GuestFindManyOrderByInvitationName) then,
-  ) = _CopyWithImpl$Query$GuestFindManyOrderByInvitationName;
+abstract class CopyWith$Query$GuestFindManyByInvitationName<TRes> {
+  factory CopyWith$Query$GuestFindManyByInvitationName(
+    Query$GuestFindManyByInvitationName instance,
+    TRes Function(Query$GuestFindManyByInvitationName) then,
+  ) = _CopyWithImpl$Query$GuestFindManyByInvitationName;
 
-  factory CopyWith$Query$GuestFindManyOrderByInvitationName.stub(TRes res) =
-      _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName;
+  factory CopyWith$Query$GuestFindManyByInvitationName.stub(TRes res) =
+      _CopyWithStubImpl$Query$GuestFindManyByInvitationName;
 
   TRes call({
-    List<Query$GuestFindManyOrderByInvitationName$guestFindMany>? guestFindMany,
+    List<Query$GuestFindManyByInvitationName$guestFindMany>? guestFindMany,
     String? $__typename,
   });
   TRes guestFindMany(
-      Iterable<Query$GuestFindManyOrderByInvitationName$guestFindMany>? Function(
+      Iterable<Query$GuestFindManyByInvitationName$guestFindMany>? Function(
               Iterable<
-                  CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany<
-                      Query$GuestFindManyOrderByInvitationName$guestFindMany>>?)
+                  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany<
+                      Query$GuestFindManyByInvitationName$guestFindMany>>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName<TRes>
-    implements CopyWith$Query$GuestFindManyOrderByInvitationName<TRes> {
-  _CopyWithImpl$Query$GuestFindManyOrderByInvitationName(
+class _CopyWithImpl$Query$GuestFindManyByInvitationName<TRes>
+    implements CopyWith$Query$GuestFindManyByInvitationName<TRes> {
+  _CopyWithImpl$Query$GuestFindManyByInvitationName(
     this._instance,
     this._then,
   );
 
-  final Query$GuestFindManyOrderByInvitationName _instance;
+  final Query$GuestFindManyByInvitationName _instance;
 
-  final TRes Function(Query$GuestFindManyOrderByInvitationName) _then;
+  final TRes Function(Query$GuestFindManyByInvitationName) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -267,49 +347,58 @@ class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName<TRes>
     Object? guestFindMany = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$GuestFindManyOrderByInvitationName(
+      _then(Query$GuestFindManyByInvitationName(
         guestFindMany: guestFindMany == _undefined
             ? _instance.guestFindMany
-            : (guestFindMany as List<
-                Query$GuestFindManyOrderByInvitationName$guestFindMany>?),
+            : (guestFindMany
+                as List<Query$GuestFindManyByInvitationName$guestFindMany>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
   TRes guestFindMany(
-          Iterable<Query$GuestFindManyOrderByInvitationName$guestFindMany>? Function(
+          Iterable<Query$GuestFindManyByInvitationName$guestFindMany>? Function(
                   Iterable<
-                      CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany<
-                          Query$GuestFindManyOrderByInvitationName$guestFindMany>>?)
+                      CopyWith$Query$GuestFindManyByInvitationName$guestFindMany<
+                          Query$GuestFindManyByInvitationName$guestFindMany>>?)
               _fn) =>
       call(
-          guestFindMany: _fn(_instance.guestFindMany?.map((e) =>
-              CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany(
-                e,
-                (i) => i,
-              )))?.toList());
+          guestFindMany: _fn(_instance.guestFindMany?.map(
+              (e) => CopyWith$Query$GuestFindManyByInvitationName$guestFindMany(
+                    e,
+                    (i) => i,
+                  )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName<TRes>
-    implements CopyWith$Query$GuestFindManyOrderByInvitationName<TRes> {
-  _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName(this._res);
+class _CopyWithStubImpl$Query$GuestFindManyByInvitationName<TRes>
+    implements CopyWith$Query$GuestFindManyByInvitationName<TRes> {
+  _CopyWithStubImpl$Query$GuestFindManyByInvitationName(this._res);
 
   TRes _res;
 
   call({
-    List<Query$GuestFindManyOrderByInvitationName$guestFindMany>? guestFindMany,
+    List<Query$GuestFindManyByInvitationName$guestFindMany>? guestFindMany,
     String? $__typename,
   }) =>
       _res;
   guestFindMany(_fn) => _res;
 }
 
-const documentNodeQueryGuestFindManyOrderByInvitationName =
+const documentNodeQueryGuestFindManyByInvitationName =
     DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'GuestFindManyOrderByInvitationName'),
+    name: NameNode(value: 'GuestFindManyByInvitationName'),
     variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'GuestWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'orderBy')),
         type: ListTypeNode(
@@ -321,7 +410,25 @@ const documentNodeQueryGuestFindManyOrderByInvitationName =
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'skip')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -330,9 +437,21 @@ const documentNodeQueryGuestFindManyOrderByInvitationName =
         alias: null,
         arguments: [
           ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
             name: NameNode(value: 'orderBy'),
             value: VariableNode(name: NameNode(value: 'orderBy')),
-          )
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -457,6 +576,35 @@ const documentNodeQueryGuestFindManyOrderByInvitationName =
             ]),
           ),
           FieldNode(
+            name: NameNode(value: 'invitationImage'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'path'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'source'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'groupMemberOf'),
             alias: null,
             arguments: [],
@@ -518,29 +666,28 @@ const documentNodeQueryGuestFindManyOrderByInvitationName =
     ]),
   ),
 ]);
-Query$GuestFindManyOrderByInvitationName
-    _parserFn$Query$GuestFindManyOrderByInvitationName(
-            Map<String, dynamic> data) =>
-        Query$GuestFindManyOrderByInvitationName.fromJson(data);
-typedef OnQueryComplete$Query$GuestFindManyOrderByInvitationName
-    = FutureOr<void> Function(
+Query$GuestFindManyByInvitationName
+    _parserFn$Query$GuestFindManyByInvitationName(Map<String, dynamic> data) =>
+        Query$GuestFindManyByInvitationName.fromJson(data);
+typedef OnQueryComplete$Query$GuestFindManyByInvitationName = FutureOr<void>
+    Function(
   Map<String, dynamic>?,
-  Query$GuestFindManyOrderByInvitationName?,
+  Query$GuestFindManyByInvitationName?,
 );
 
-class Options$Query$GuestFindManyOrderByInvitationName
-    extends graphql.QueryOptions<Query$GuestFindManyOrderByInvitationName> {
-  Options$Query$GuestFindManyOrderByInvitationName({
+class Options$Query$GuestFindManyByInvitationName
+    extends graphql.QueryOptions<Query$GuestFindManyByInvitationName> {
+  Options$Query$GuestFindManyByInvitationName({
     String? operationName,
-    Variables$Query$GuestFindManyOrderByInvitationName? variables,
+    Variables$Query$GuestFindManyByInvitationName? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$GuestFindManyOrderByInvitationName? typedOptimisticResult,
+    Query$GuestFindManyByInvitationName? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$GuestFindManyOrderByInvitationName? onComplete,
+    OnQueryComplete$Query$GuestFindManyByInvitationName? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
@@ -558,15 +705,14 @@ class Options$Query$GuestFindManyOrderByInvitationName
                     data,
                     data == null
                         ? null
-                        : _parserFn$Query$GuestFindManyOrderByInvitationName(
-                            data),
+                        : _parserFn$Query$GuestFindManyByInvitationName(data),
                   ),
           onError: onError,
-          document: documentNodeQueryGuestFindManyOrderByInvitationName,
-          parserFn: _parserFn$Query$GuestFindManyOrderByInvitationName,
+          document: documentNodeQueryGuestFindManyByInvitationName,
+          parserFn: _parserFn$Query$GuestFindManyByInvitationName,
         );
 
-  final OnQueryComplete$Query$GuestFindManyOrderByInvitationName?
+  final OnQueryComplete$Query$GuestFindManyByInvitationName?
       onCompleteWithParsed;
 
   @override
@@ -578,16 +724,16 @@ class Options$Query$GuestFindManyOrderByInvitationName
       ];
 }
 
-class WatchOptions$Query$GuestFindManyOrderByInvitationName extends graphql
-    .WatchQueryOptions<Query$GuestFindManyOrderByInvitationName> {
-  WatchOptions$Query$GuestFindManyOrderByInvitationName({
+class WatchOptions$Query$GuestFindManyByInvitationName
+    extends graphql.WatchQueryOptions<Query$GuestFindManyByInvitationName> {
+  WatchOptions$Query$GuestFindManyByInvitationName({
     String? operationName,
-    Variables$Query$GuestFindManyOrderByInvitationName? variables,
+    Variables$Query$GuestFindManyByInvitationName? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$GuestFindManyOrderByInvitationName? typedOptimisticResult,
+    Query$GuestFindManyByInvitationName? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -601,103 +747,98 @@ class WatchOptions$Query$GuestFindManyOrderByInvitationName extends graphql
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQueryGuestFindManyOrderByInvitationName,
+          document: documentNodeQueryGuestFindManyByInvitationName,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$GuestFindManyOrderByInvitationName,
+          parserFn: _parserFn$Query$GuestFindManyByInvitationName,
         );
 }
 
-class FetchMoreOptions$Query$GuestFindManyOrderByInvitationName
+class FetchMoreOptions$Query$GuestFindManyByInvitationName
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$GuestFindManyOrderByInvitationName({
+  FetchMoreOptions$Query$GuestFindManyByInvitationName({
     required graphql.UpdateQuery updateQuery,
-    Variables$Query$GuestFindManyOrderByInvitationName? variables,
+    Variables$Query$GuestFindManyByInvitationName? variables,
   }) : super(
           updateQuery: updateQuery,
           variables: variables?.toJson() ?? {},
-          document: documentNodeQueryGuestFindManyOrderByInvitationName,
+          document: documentNodeQueryGuestFindManyByInvitationName,
         );
 }
 
-extension ClientExtension$Query$GuestFindManyOrderByInvitationName
+extension ClientExtension$Query$GuestFindManyByInvitationName
     on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$GuestFindManyOrderByInvitationName>>
-      query$GuestFindManyOrderByInvitationName(
-              [Options$Query$GuestFindManyOrderByInvitationName?
-                  options]) async =>
-          await this.query(
-              options ?? Options$Query$GuestFindManyOrderByInvitationName());
-  graphql.ObservableQuery<Query$GuestFindManyOrderByInvitationName>
-      watchQuery$GuestFindManyOrderByInvitationName(
-              [WatchOptions$Query$GuestFindManyOrderByInvitationName?
-                  options]) =>
-          this.watchQuery(options ??
-              WatchOptions$Query$GuestFindManyOrderByInvitationName());
-  void writeQuery$GuestFindManyOrderByInvitationName({
-    required Query$GuestFindManyOrderByInvitationName data,
-    Variables$Query$GuestFindManyOrderByInvitationName? variables,
+  Future<graphql.QueryResult<Query$GuestFindManyByInvitationName>>
+      query$GuestFindManyByInvitationName(
+              [Options$Query$GuestFindManyByInvitationName? options]) async =>
+          await this
+              .query(options ?? Options$Query$GuestFindManyByInvitationName());
+  graphql.ObservableQuery<Query$GuestFindManyByInvitationName>
+      watchQuery$GuestFindManyByInvitationName(
+              [WatchOptions$Query$GuestFindManyByInvitationName? options]) =>
+          this.watchQuery(
+              options ?? WatchOptions$Query$GuestFindManyByInvitationName());
+  void writeQuery$GuestFindManyByInvitationName({
+    required Query$GuestFindManyByInvitationName data,
+    Variables$Query$GuestFindManyByInvitationName? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(
-              document: documentNodeQueryGuestFindManyOrderByInvitationName),
+              document: documentNodeQueryGuestFindManyByInvitationName),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$GuestFindManyOrderByInvitationName?
-      readQuery$GuestFindManyOrderByInvitationName({
-    Variables$Query$GuestFindManyOrderByInvitationName? variables,
+  Query$GuestFindManyByInvitationName? readQuery$GuestFindManyByInvitationName({
+    Variables$Query$GuestFindManyByInvitationName? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(
-            document: documentNodeQueryGuestFindManyOrderByInvitationName),
+            document: documentNodeQueryGuestFindManyByInvitationName),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
     return result == null
         ? null
-        : Query$GuestFindManyOrderByInvitationName.fromJson(result);
+        : Query$GuestFindManyByInvitationName.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$GuestFindManyOrderByInvitationName>
-    useQuery$GuestFindManyOrderByInvitationName(
-            [Options$Query$GuestFindManyOrderByInvitationName? options]) =>
-        graphql_flutter.useQuery(
-            options ?? Options$Query$GuestFindManyOrderByInvitationName());
-graphql.ObservableQuery<Query$GuestFindManyOrderByInvitationName>
-    useWatchQuery$GuestFindManyOrderByInvitationName(
-            [WatchOptions$Query$GuestFindManyOrderByInvitationName? options]) =>
+graphql_flutter.QueryHookResult<Query$GuestFindManyByInvitationName>
+    useQuery$GuestFindManyByInvitationName(
+            [Options$Query$GuestFindManyByInvitationName? options]) =>
+        graphql_flutter
+            .useQuery(options ?? Options$Query$GuestFindManyByInvitationName());
+graphql.ObservableQuery<Query$GuestFindManyByInvitationName>
+    useWatchQuery$GuestFindManyByInvitationName(
+            [WatchOptions$Query$GuestFindManyByInvitationName? options]) =>
         graphql_flutter.useWatchQuery(
-            options ?? WatchOptions$Query$GuestFindManyOrderByInvitationName());
+            options ?? WatchOptions$Query$GuestFindManyByInvitationName());
 
-class Query$GuestFindManyOrderByInvitationName$Widget
-    extends graphql_flutter.Query<Query$GuestFindManyOrderByInvitationName> {
-  Query$GuestFindManyOrderByInvitationName$Widget({
+class Query$GuestFindManyByInvitationName$Widget
+    extends graphql_flutter.Query<Query$GuestFindManyByInvitationName> {
+  Query$GuestFindManyByInvitationName$Widget({
     widgets.Key? key,
-    Options$Query$GuestFindManyOrderByInvitationName? options,
-    required graphql_flutter
-        .QueryBuilder<Query$GuestFindManyOrderByInvitationName>
+    Options$Query$GuestFindManyByInvitationName? options,
+    required graphql_flutter.QueryBuilder<Query$GuestFindManyByInvitationName>
         builder,
   }) : super(
           key: key,
-          options:
-              options ?? Options$Query$GuestFindManyOrderByInvitationName(),
+          options: options ?? Options$Query$GuestFindManyByInvitationName(),
           builder: builder,
         );
 }
 
-class Query$GuestFindManyOrderByInvitationName$guestFindMany {
-  Query$GuestFindManyOrderByInvitationName$guestFindMany({
+class Query$GuestFindManyByInvitationName$guestFindMany {
+  Query$GuestFindManyByInvitationName$guestFindMany({
     required this.id,
     this.source,
     required this.invitationName,
@@ -710,11 +851,12 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
     this.showTime,
     this.confirmationStatus,
     this.whatsappStatuses,
+    this.invitationImage,
     this.groupMemberOf,
     this.$__typename = 'Guest',
   });
 
-  factory Query$GuestFindManyOrderByInvitationName$guestFindMany.fromJson(
+  factory Query$GuestFindManyByInvitationName$guestFindMany.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$source = json['source'];
@@ -728,9 +870,10 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
     final l$showTime = json['showTime'];
     final l$confirmationStatus = json['confirmationStatus'];
     final l$whatsappStatuses = json['whatsappStatuses'];
+    final l$invitationImage = json['invitationImage'];
     final l$groupMemberOf = json['groupMemberOf'];
     final l$$__typename = json['__typename'];
-    return Query$GuestFindManyOrderByInvitationName$guestFindMany(
+    return Query$GuestFindManyByInvitationName$guestFindMany(
       id: (l$id as String),
       source: (l$source as String?),
       invitationName: (l$invitationName as String),
@@ -746,12 +889,16 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
           : fromJson$Enum$ConfirmationStatus((l$confirmationStatus as String)),
       whatsappStatuses: (l$whatsappStatuses as List<dynamic>?)
           ?.map((e) =>
-              Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses
+              Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses
                   .fromJson((e as Map<String, dynamic>)))
           .toList(),
+      invitationImage: l$invitationImage == null
+          ? null
+          : Query$GuestFindManyByInvitationName$guestFindMany$invitationImage
+              .fromJson((l$invitationImage as Map<String, dynamic>)),
       groupMemberOf: l$groupMemberOf == null
           ? null
-          : Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf
+          : Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf
               .fromJson((l$groupMemberOf as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -780,10 +927,13 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
   final Enum$ConfirmationStatus? confirmationStatus;
 
   final List<
-          Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>?
+          Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>?
       whatsappStatuses;
 
-  final Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf?
+  final Query$GuestFindManyByInvitationName$guestFindMany$invitationImage?
+      invitationImage;
+
+  final Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf?
       groupMemberOf;
 
   final String $__typename;
@@ -817,6 +967,8 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
     final l$whatsappStatuses = whatsappStatuses;
     _resultData['whatsappStatuses'] =
         l$whatsappStatuses?.map((e) => e.toJson()).toList();
+    final l$invitationImage = invitationImage;
+    _resultData['invitationImage'] = l$invitationImage?.toJson();
     final l$groupMemberOf = groupMemberOf;
     _resultData['groupMemberOf'] = l$groupMemberOf?.toJson();
     final l$$__typename = $__typename;
@@ -838,6 +990,7 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
     final l$showTime = showTime;
     final l$confirmationStatus = confirmationStatus;
     final l$whatsappStatuses = whatsappStatuses;
+    final l$invitationImage = invitationImage;
     final l$groupMemberOf = groupMemberOf;
     final l$$__typename = $__typename;
     return Object.hashAll([
@@ -855,6 +1008,7 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
       l$whatsappStatuses == null
           ? null
           : Object.hashAll(l$whatsappStatuses.map((v) => v)),
+      l$invitationImage,
       l$groupMemberOf,
       l$$__typename,
     ]);
@@ -865,7 +1019,7 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GuestFindManyOrderByInvitationName$guestFindMany) ||
+    if (!(other is Query$GuestFindManyByInvitationName$guestFindMany) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -940,6 +1094,11 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
     } else if (l$whatsappStatuses != lOther$whatsappStatuses) {
       return false;
     }
+    final l$invitationImage = invitationImage;
+    final lOther$invitationImage = other.invitationImage;
+    if (l$invitationImage != lOther$invitationImage) {
+      return false;
+    }
     final l$groupMemberOf = groupMemberOf;
     final lOther$groupMemberOf = other.groupMemberOf;
     if (l$groupMemberOf != lOther$groupMemberOf) {
@@ -954,27 +1113,27 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany {
   }
 }
 
-extension UtilityExtension$Query$GuestFindManyOrderByInvitationName$guestFindMany
-    on Query$GuestFindManyOrderByInvitationName$guestFindMany {
-  CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany<
-          Query$GuestFindManyOrderByInvitationName$guestFindMany>
+extension UtilityExtension$Query$GuestFindManyByInvitationName$guestFindMany
+    on Query$GuestFindManyByInvitationName$guestFindMany {
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany<
+          Query$GuestFindManyByInvitationName$guestFindMany>
       get copyWith =>
-          CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany(
+          CopyWith$Query$GuestFindManyByInvitationName$guestFindMany(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany<
+abstract class CopyWith$Query$GuestFindManyByInvitationName$guestFindMany<
     TRes> {
-  factory CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany(
-    Query$GuestFindManyOrderByInvitationName$guestFindMany instance,
-    TRes Function(Query$GuestFindManyOrderByInvitationName$guestFindMany) then,
-  ) = _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany;
+  factory CopyWith$Query$GuestFindManyByInvitationName$guestFindMany(
+    Query$GuestFindManyByInvitationName$guestFindMany instance,
+    TRes Function(Query$GuestFindManyByInvitationName$guestFindMany) then,
+  ) = _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany;
 
-  factory CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany.stub(
+  factory CopyWith$Query$GuestFindManyByInvitationName$guestFindMany.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany;
+      _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany;
 
   TRes call({
     String? id,
@@ -988,34 +1147,37 @@ abstract class CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany<
     String? studio,
     String? showTime,
     Enum$ConfirmationStatus? confirmationStatus,
-    List<Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>?
+    List<Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>?
         whatsappStatuses,
-    Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf?
+    Query$GuestFindManyByInvitationName$guestFindMany$invitationImage?
+        invitationImage,
+    Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf?
         groupMemberOf,
     String? $__typename,
   });
   TRes whatsappStatuses(
-      Iterable<Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>? Function(
+      Iterable<Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>? Function(
               Iterable<
-                  CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses<
-                      Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>>?)
+                  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses<
+                      Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>>?)
           _fn);
-  CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
-      TRes> get groupMemberOf;
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
+      TRes> get invitationImage;
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<TRes>
+      get groupMemberOf;
 }
 
-class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany<TRes>
+class _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany<TRes>
     implements
-        CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany<TRes> {
-  _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany(
+        CopyWith$Query$GuestFindManyByInvitationName$guestFindMany<TRes> {
+  _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany(
     this._instance,
     this._then,
   );
 
-  final Query$GuestFindManyOrderByInvitationName$guestFindMany _instance;
+  final Query$GuestFindManyByInvitationName$guestFindMany _instance;
 
-  final TRes Function(Query$GuestFindManyOrderByInvitationName$guestFindMany)
-      _then;
+  final TRes Function(Query$GuestFindManyByInvitationName$guestFindMany) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1032,10 +1194,11 @@ class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany<TRes>
     Object? showTime = _undefined,
     Object? confirmationStatus = _undefined,
     Object? whatsappStatuses = _undefined,
+    Object? invitationImage = _undefined,
     Object? groupMemberOf = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$GuestFindManyOrderByInvitationName$guestFindMany(
+      _then(Query$GuestFindManyByInvitationName$guestFindMany(
         id: id == _undefined || id == null ? _instance.id : (id as String),
         source: source == _undefined ? _instance.source : (source as String?),
         invitationName: invitationName == _undefined || invitationName == null
@@ -1059,43 +1222,56 @@ class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany<TRes>
         whatsappStatuses: whatsappStatuses == _undefined
             ? _instance.whatsappStatuses
             : (whatsappStatuses as List<
-                Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>?),
+                Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>?),
+        invitationImage: invitationImage == _undefined
+            ? _instance.invitationImage
+            : (invitationImage
+                as Query$GuestFindManyByInvitationName$guestFindMany$invitationImage?),
         groupMemberOf: groupMemberOf == _undefined
             ? _instance.groupMemberOf
             : (groupMemberOf
-                as Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf?),
+                as Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
   TRes whatsappStatuses(
-          Iterable<Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>? Function(
+          Iterable<Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>? Function(
                   Iterable<
-                      CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses<
-                          Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>>?)
+                      CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses<
+                          Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>>?)
               _fn) =>
       call(
           whatsappStatuses: _fn(_instance.whatsappStatuses?.map((e) =>
-              CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses(
+              CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses(
                 e,
                 (i) => i,
               )))?.toList());
-  CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
-      TRes> get groupMemberOf {
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
+      TRes> get invitationImage {
+    final local$invitationImage = _instance.invitationImage;
+    return local$invitationImage == null
+        ? CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage
+            .stub(_then(_instance))
+        : CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage(
+            local$invitationImage, (e) => call(invitationImage: e));
+  }
+
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<TRes>
+      get groupMemberOf {
     final local$groupMemberOf = _instance.groupMemberOf;
     return local$groupMemberOf == null
-        ? CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf
+        ? CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf
             .stub(_then(_instance))
-        : CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf(
+        : CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf(
             local$groupMemberOf, (e) => call(groupMemberOf: e));
   }
 }
 
-class _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany<
-        TRes>
+class _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany<TRes>
     implements
-        CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany<TRes> {
-  _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany(
+        CopyWith$Query$GuestFindManyByInvitationName$guestFindMany<TRes> {
+  _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany(
       this._res);
 
   TRes _res;
@@ -1112,23 +1288,29 @@ class _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany<
     String? studio,
     String? showTime,
     Enum$ConfirmationStatus? confirmationStatus,
-    List<Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>?
+    List<Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>?
         whatsappStatuses,
-    Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf?
+    Query$GuestFindManyByInvitationName$guestFindMany$invitationImage?
+        invitationImage,
+    Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf?
         groupMemberOf,
     String? $__typename,
   }) =>
       _res;
   whatsappStatuses(_fn) => _res;
-  CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
           TRes>
+      get invitationImage =>
+          CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage
+              .stub(_res);
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<TRes>
       get groupMemberOf =>
-          CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf
+          CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf
               .stub(_res);
 }
 
-class Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses {
-  Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses({
+class Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses {
+  Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses({
     required this.id,
     required this.status,
     required this.guestId,
@@ -1136,14 +1318,14 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses {
     this.$__typename = 'WhatsappStatus',
   });
 
-  factory Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses.fromJson(
+  factory Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$status = json['status'];
     final l$guestId = json['guestId'];
     final l$createdAt = json['createdAt'];
     final l$$__typename = json['__typename'];
-    return Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses(
+    return Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses(
       id: (l$id as int),
       status: fromJson$Enum$QueueStatus((l$status as String)),
       guestId: (l$guestId as String),
@@ -1199,7 +1381,7 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses {
       return true;
     }
     if (!(other
-            is Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses) ||
+            is Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1232,30 +1414,29 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses {
   }
 }
 
-extension UtilityExtension$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses
-    on Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses {
-  CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses<
-          Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses>
+extension UtilityExtension$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses
+    on Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses {
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses<
+          Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses>
       get copyWith =>
-          CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses(
+          CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses<
+abstract class CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses<
     TRes> {
-  factory CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses(
-    Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses
-        instance,
+  factory CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses(
+    Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses instance,
     TRes Function(
-            Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses)
+            Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses)
         then,
-  ) = _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses;
+  ) = _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses;
 
-  factory CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses.stub(
+  factory CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses;
+      _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses;
 
   TRes call({
     int? id,
@@ -1266,22 +1447,21 @@ abstract class CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$w
   });
 }
 
-class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses<
+class _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses<
         TRes>
     implements
-        CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses<
+        CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses<
             TRes> {
-  _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses(
+  _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses(
     this._instance,
     this._then,
   );
 
-  final Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses
+  final Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses
       _instance;
 
   final TRes Function(
-          Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses)
-      _then;
+      Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1292,8 +1472,7 @@ class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$whats
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses(
+      _then(Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         status: status == _undefined || status == null
             ? _instance.status
@@ -1310,12 +1489,12 @@ class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$whats
       ));
 }
 
-class _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses<
+class _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses<
         TRes>
     implements
-        CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses<
+        CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses<
             TRes> {
-  _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$whatsappStatuses(
+  _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$whatsappStatuses(
       this._res);
 
   TRes _res;
@@ -1330,8 +1509,150 @@ class _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$w
       _res;
 }
 
-class Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf {
-  Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf({
+class Query$GuestFindManyByInvitationName$guestFindMany$invitationImage {
+  Query$GuestFindManyByInvitationName$guestFindMany$invitationImage({
+    required this.path,
+    this.$__typename = 'InvitationImage',
+  });
+
+  factory Query$GuestFindManyByInvitationName$guestFindMany$invitationImage.fromJson(
+      Map<String, dynamic> json) {
+    final l$path = json['path'];
+    final l$$__typename = json['__typename'];
+    return Query$GuestFindManyByInvitationName$guestFindMany$invitationImage(
+      path: (l$path as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String path;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$path = path;
+    _resultData['path'] = l$path;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$path = path;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$path,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$GuestFindManyByInvitationName$guestFindMany$invitationImage) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$path = path;
+    final lOther$path = other.path;
+    if (l$path != lOther$path) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage
+    on Query$GuestFindManyByInvitationName$guestFindMany$invitationImage {
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
+          Query$GuestFindManyByInvitationName$guestFindMany$invitationImage>
+      get copyWith =>
+          CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
+    TRes> {
+  factory CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage(
+    Query$GuestFindManyByInvitationName$guestFindMany$invitationImage instance,
+    TRes Function(
+            Query$GuestFindManyByInvitationName$guestFindMany$invitationImage)
+        then,
+  ) = _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage;
+
+  factory CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage;
+
+  TRes call({
+    String? path,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
+        TRes>
+    implements
+        CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
+            TRes> {
+  _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GuestFindManyByInvitationName$guestFindMany$invitationImage
+      _instance;
+
+  final TRes Function(
+      Query$GuestFindManyByInvitationName$guestFindMany$invitationImage) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? path = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GuestFindManyByInvitationName$guestFindMany$invitationImage(
+        path: path == _undefined || path == null
+            ? _instance.path
+            : (path as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
+        TRes>
+    implements
+        CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage<
+            TRes> {
+  _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$invitationImage(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? path,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf {
+  Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf({
     required this.id,
     this.source,
     required this.invitationName,
@@ -1339,14 +1660,14 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf {
     this.$__typename = 'Guest',
   });
 
-  factory Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf.fromJson(
+  factory Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$source = json['source'];
     final l$invitationName = json['invitationName'];
     final l$contactList = json['contactList'];
     final l$$__typename = json['__typename'];
-    return Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf(
+    return Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf(
       id: (l$id as String),
       source: (l$source as String?),
       invitationName: (l$invitationName as String),
@@ -1402,7 +1723,7 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf {
       return true;
     }
     if (!(other
-            is Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf) ||
+            is Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1435,30 +1756,29 @@ class Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf {
   }
 }
 
-extension UtilityExtension$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf
-    on Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf {
-  CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
-          Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf>
+extension UtilityExtension$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf
+    on Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf {
+  CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<
+          Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf>
       get copyWith =>
-          CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf(
+          CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
+abstract class CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<
     TRes> {
-  factory CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf(
-    Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf
-        instance,
+  factory CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf(
+    Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf instance,
     TRes Function(
-            Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf)
+            Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf)
         then,
-  ) = _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf;
+  ) = _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf;
 
-  factory CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf.stub(
+  factory CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf;
+      _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf;
 
   TRes call({
     String? id,
@@ -1469,22 +1789,21 @@ abstract class CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$g
   });
 }
 
-class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
+class _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<
         TRes>
     implements
-        CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
+        CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<
             TRes> {
-  _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf(
+  _CopyWithImpl$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf(
     this._instance,
     this._then,
   );
 
-  final Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf
+  final Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf
       _instance;
 
   final TRes Function(
-          Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf)
-      _then;
+      Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1495,8 +1814,7 @@ class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$group
     Object? contactList = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf(
+      _then(Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf(
         id: id == _undefined || id == null ? _instance.id : (id as String),
         source: source == _undefined ? _instance.source : (source as String?),
         invitationName: invitationName == _undefined || invitationName == null
@@ -1511,12 +1829,12 @@ class _CopyWithImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$group
       ));
 }
 
-class _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
+class _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<
         TRes>
     implements
-        CopyWith$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf<
+        CopyWith$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf<
             TRes> {
-  _CopyWithStubImpl$Query$GuestFindManyOrderByInvitationName$guestFindMany$groupMemberOf(
+  _CopyWithStubImpl$Query$GuestFindManyByInvitationName$guestFindMany$groupMemberOf(
       this._res);
 
   TRes _res;

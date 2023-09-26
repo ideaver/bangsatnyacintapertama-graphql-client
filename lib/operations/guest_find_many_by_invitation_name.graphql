@@ -1,5 +1,5 @@
-query GuestFindManyOrderByInvitationName($orderBy: [GuestOrderByWithRelationInput!]) {
-  guestFindMany(orderBy: $orderBy) {
+query GuestFindManyByInvitationName($where: GuestWhereInput, $orderBy: [GuestOrderByWithRelationInput!], $take: Int, $skip: Int) {
+  guestFindMany(where: $where, orderBy: $orderBy, take: $take, skip: $skip) {
     id
     source
     invitationName
@@ -17,6 +17,10 @@ query GuestFindManyOrderByInvitationName($orderBy: [GuestOrderByWithRelationInpu
       guestId
       createdAt
     }
+    invitationImage {
+      path
+    }
+    source
     groupMemberOf {
       id
       source
