@@ -1,0 +1,17 @@
+mutation GuestCreateOne($data: GuestCreateInput!) {
+  guestCreateOne(data: $data) {
+    id
+    source
+    invitationName
+    contactList
+    whatsapp
+    category
+    class
+    seat
+    studio
+    showTime
+    rejectionReason
+    createdAt
+    confirmationStatus
+  }
+}

@@ -1,0 +1,3 @@
+query GuestCountWhereConfirmationStatusAndQrCodeScannedAtNull($where: GuestWhereInput) {
+  guestCount(where: $where)
+}

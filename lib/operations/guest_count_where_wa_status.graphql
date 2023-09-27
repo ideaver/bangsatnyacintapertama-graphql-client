@@ -1,0 +1,3 @@
+query GuestCountWhereWhatsappStatusSent($where: GuestWhereInput) {
+  guestCount(where: $where)
+}

@@ -1,0 +1,20 @@
+mutation GuestUpdateOne($data: GuestUpdateInput!, $where: GuestWhereUniqueInput!) {
+  guestUpdateOne(data: $data, where: $where) {
+    id
+    source
+    invitationName
+    contactList
+    whatsapp
+    category
+    class
+    seat
+    studio
+    showTime
+    rejectionReason
+    createdAt
+    updatedAt
+    deletedAt
+    groupMemberOfId
+    confirmationStatus
+  }
+}

@@ -1,0 +1,5 @@
+mutation GuestDeleteMany($where: GuestWhereInput) {
+  guestDeleteMany(where: $where) {
+    count
+  }
+}

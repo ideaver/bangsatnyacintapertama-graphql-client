@@ -1,0 +1,3 @@
+query GuestCountWhereInvitedButNotCheckinYet($where: GuestWhereInput) {
+  guestCount(where: $where)
+}

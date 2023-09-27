@@ -1,0 +1,3 @@
+query GuestCountWhereQrScannedAtNotNull($where: GuestWhereInput) {
+  guestCount(where: $where)
+}

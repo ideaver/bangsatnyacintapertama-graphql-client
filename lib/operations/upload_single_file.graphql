@@ -1,0 +1,5 @@
+mutation UploadSingleFile($file: Upload) {
+  uploadSingleFile(file: $file) {
+    count
+  }
+}

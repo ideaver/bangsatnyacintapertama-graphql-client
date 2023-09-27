@@ -1,0 +1,34 @@
+query GuestFindManyOrderByQrCodeScan($orderBy: [GuestOrderByWithRelationInput!], $take: Int, $skip: Int, $where: GuestWhereInput) {
+  guestFindMany(orderBy: $orderBy, take: $take, skip: $skip, where: $where) {
+    id
+    source
+    invitationName
+    contactList
+    whatsapp
+    category
+    class
+    seat
+    studio
+    showTime
+    confirmationStatus
+    qrcode {
+      scannedAt
+      scannedBy {
+        fullName
+      }
+    }
+    invitationImage {
+      path
+    }
+    whatsappStatuses {
+      status
+      createdAt
+    }
+    groupMemberOf {
+      id
+      source
+      contactList
+      category
+    }
+  }
+}

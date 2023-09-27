@@ -1,0 +1,42 @@
+query QrCodeScan($guestId: String!) {
+  qrCodeScan(guestId: $guestId) {
+    isSuccess
+    message
+    qrData {
+      id
+      path
+      scannedAt
+      createdAt
+      raceConditionValue
+      guestId
+      scannedBy {
+        id
+        fullName
+        email
+        password
+        createdAt
+        updatedAt
+        deletedAt
+        role
+      }
+      guest {
+        id
+        source
+        invitationName
+        contactList
+        whatsapp
+        category
+        class
+        seat
+        studio
+        showTime
+        rejectionReason
+        createdAt
+        updatedAt
+        deletedAt
+        groupMemberOfId
+        confirmationStatus
+      }
+    }
+  }
+}

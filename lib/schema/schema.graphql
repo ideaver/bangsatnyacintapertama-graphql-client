@@ -1126,13 +1126,13 @@ type Mutation {
   guestUpdateOne(data: GuestUpdateInput!, where: GuestWhereUniqueInput!): Guest
 
   """Deskripsinya ada disini loh"""
-  guestUpdateMany(data: GuestUpdateManyMutationInput!, where: GuestWhereInput): Guest
+  guestUpdateMany(data: GuestUpdateManyMutationInput!, where: GuestWhereInput): BatchPayload
 
   """Deskripsinya ada disini loh"""
   guestDelete(where: GuestWhereUniqueInput!): Boolean!
 
   """Deskripsinya ada disini loh"""
-  guestDeleteMany(where: GuestWhereInput): Boolean!
+  guestDeleteMany(where: GuestWhereInput): BatchPayload!
 
   """Deskripsinya ada disini loh"""
   qrCodeCreateOne(data: QrCodeCreateInput!): QrCode
@@ -1145,6 +1145,9 @@ type Mutation {
 
   """Deskripsinya ada disini loh"""
   qrCodeUpdateMany(data: QrCodeUpdateManyMutationInput!, where: QrCodeWhereInput): BatchPayload
+
+  """Deskripsinya ada disini loh"""
+  qrCodeDeleteManyScannedToNullByGuestIds(guestIds: [String!]!): BatchPayload
 
   """Deskripsinya ada disini loh"""
   qrCodeDelete(where: QrCodeWhereUniqueInput!): Boolean!

@@ -1,0 +1,5 @@
+mutation QrCodeDeleteManyScannedToNullByGuestIds($guestIds: [String!]!) {
+  qrCodeDeleteManyScannedToNullByGuestIds(guestIds: $guestIds) {
+    count
+  }
+}
